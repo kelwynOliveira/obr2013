@@ -1,0 +1,20 @@
+#define TURN_TIME   340
+
+thread main
+  OnFwd(OUT_BC,100)
+  wait 1000
+  call turn_around
+  wait 2000
+  call turn_around
+  wait 1000
+  call turn_around
+  Off(OUT_BC)
+endt
+
+subroutine turn_around
+  OnRev(OUT_C,50)
+  wait TURN_TIME
+  OnFwd(OUT_BC,100)
+  return
+ends
+

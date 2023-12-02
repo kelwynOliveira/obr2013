@@ -1,0 +1,10 @@
+thread main
+  OnFwd(OUT_BC,100)
+  wait 200
+  Off(OUT_BC)
+  wait 100
+  OnFwd(OUT_BC,100)
+  wait 200
+  Coast(OUT_BC)
+endt
+

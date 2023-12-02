@@ -1,0 +1,21 @@
+#define COLOR S3
+#define SOUND S2
+
+task main ()
+    {
+     int leirura_cor;
+     int leitura_som;
+     SetSensorColorRed (COLOR);
+     SetSensorUS (SOUND);
+    }
+    
+    
+do {
+   leitura_cor=Sensor (COLOR);
+   kp=10;
+   offset=45;
+   tp=50;
+   }
+while (leitura_cor)
+
+

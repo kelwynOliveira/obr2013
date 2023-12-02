@@ -1,0 +1,24 @@
+dseg segment
+  aaa byte
+  bbb byte
+  wRandom byte
+dseg ends
+
+thread main
+  set aaa, 10
+  Random(wRandom,20)
+  mov bbb, wRandom
+
+  NumOut(10, LCD_LINE7, bbb)
+
+  brcmp GT, Bigger, bbb, aaa
+  TextOut(50, LCD_LINE7, 'small')
+  brcmp LTEQ, Delay, bbb, aaa
+Bigger:
+  TextOut(50, LCD_LINE7, 'BIG')
+Delay:
+  wait 2000
+
+  exit
+endt
+

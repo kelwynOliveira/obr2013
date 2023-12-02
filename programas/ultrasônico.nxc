@@ -1,0 +1,21 @@
+#define SOUND S2
+#define DIST 10
+
+
+task main(){
+     SetSensorLowspeed(SOUND);
+     
+if (SensorUS(SOUND)<= DIST)
+      {
+      Off (OUT_C);
+      RotateMotor(OUT_B, 50, 90);
+      OnFwd(OUT_BC, 50);
+      Wait(1000);
+      Off (OUT_B);
+      RotateMotor(OUT_C, 50, 180);
+      OnFwd (OUT_BC, 50);
+      Wait (1000);
+      Off (OUT_C);
+      RotateMotor(OUT_B, 50,90);
+      }
+}

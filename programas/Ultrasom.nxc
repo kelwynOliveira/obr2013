@@ -1,0 +1,33 @@
+#define SOUND S2
+#define DIST 25
+
+ task main(){
+ SetSensorLowspeed(SOUND);
+ while (true){
+ if (SensorUS(SOUND)<= DIST)
+ {
+ Off (OUT_C);
+ RotateMotor(OUT_B, 50, 180);
+ RotateMotor(OUT_B, 50, 180);
+ RotateMotor(OUT_B, 50, 180);
+ OnFwd(OUT_BC, 50);
+ Wait(1000);
+ Off (OUT_B);
+ RotateMotor(OUT_C, 50, 180);
+ RotateMotor(OUT_C, 50, 180);
+ RotateMotor(OUT_C, 50, 180);
+ OnFwd (OUT_BC, 50);
+ Wait (2000);
+ Off (OUT_B);
+ RotateMotor(OUT_C, 50,180);
+ RotateMotor(OUT_C, 50,180);
+ OnFwd (OUT_BC, 50);
+ Wait (1000);
+ RotateMotor(OUT_C, 50,180);
+ RotateMotor(OUT_C, 50,180);
+ RotateMotor(OUT_C, 50,180);
+ }
+ else
+ OnFwd (OUT_BC, 50); // para teste, faz o robô seguir em frente.
+ }
+ }

@@ -1,0 +1,14 @@
+#define Float(ports) setout ports, Power, 0, OutputMode, OUT_MODE_COAST, RegMode, OUT_REGMODE_IDLE, RunState, OUT_RUNSTATE_IDLE, UpdateFlags, UF_UPDATE_SPEED+UF_UPDATE_MODE
+#define SetPower(ports,pwr) setout ports, Power, pwr, OutputMode, OUT_MODE_BRAKE, RegMode, OUT_REGMODE_IDLE, RunState, OUT_RUNSTATE_IDLE, UpdateFlags, UF_UPDATE_SPEED+UF_UPDATE_MODE
+#define SetOutput(ports,mode) setout ports, Power, 0, OutputMode, mode, RegMode, OUT_REGMODE_IDLE, RunState, OUT_RUNSTATE_IDLE, UpdateFlags, UF_UPDATE_SPEED+UF_UPDATE_MODE
+
+thread main
+  OnFwd(OUT_BC,100)
+  wait 200
+  Off(OUT_BC)
+  wait 100
+  OnFwd(OUT_BC,100)
+  wait 200
+  Coast(OUT_BC)
+endt
+

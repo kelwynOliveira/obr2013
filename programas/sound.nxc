@@ -1,0 +1,56 @@
+#define COLOR S3
+#define SOUND S2
+
+task main ()
+    {
+     int leitura;
+     int ajuste;
+     int forca=60;
+     int erro;
+     int kp;
+     int offset;
+     int tp;
+     int turn;
+     int powerC;
+     int powerB;
+     SetSensorColorRed(COLOR);
+     SetSensorUS (SOUND);
+    
+    
+do {
+   kp=10;
+   offset=45;
+   tp=50;
+   leitura_cor=Sensor (COLOR);
+   erro=leitura_cor-offset;
+   turn=kp *erro;
+   powerB = tp + turn;
+   powerC = tp - turn;
+   }
+while (leitura_cor)
+      {
+      OnFwdSync(OUT_B, powerB, -45);
+      OnFwdSync(OUT_C, powerC, 45);
+      }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

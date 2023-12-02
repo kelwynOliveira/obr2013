@@ -1,0 +1,19 @@
+dseg segment
+  aaa byte
+  bbb byte
+  ccc byte
+dseg ends
+
+thread main
+  set aaa, 10		// aaa is now equal to 10
+  mul bbb, 20, 5	// bbb is now equal to 100
+  mov ccc, bbb		// ccc is now equal to 100
+  div ccc, ccc, aaa	// ccc is now equal to 10
+  add ccc, ccc, 5	// ccc is now equal to 15
+
+  NumOut(10, LCD_LINE1, ccc)
+  wait 2000
+
+  exit
+endt
+

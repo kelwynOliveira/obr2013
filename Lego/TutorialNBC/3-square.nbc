@@ -1,0 +1,19 @@
+#define MOVE_TIME   800
+#define TURN_TIME   200
+
+dseg segment
+  RepeatCount byte 4
+dseg ends
+
+thread main
+
+SquareLoop:
+  OnFwd(OUT_BC,100)
+  wait MOVE_TIME
+  OnRev(OUT_C,100)
+  wait TURN_TIME
+  sub RepeatCount, RepeatCount, 1
+  brtst GT, SquareLoop, RepeatCount
+
+  Off(OUT_BC)
+endt

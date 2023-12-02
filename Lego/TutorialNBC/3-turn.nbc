@@ -1,0 +1,10 @@
+#define MOVE_TIME   500
+#define TURN_TIME   250
+
+thread main
+  OnFwd(OUT_BC,100)
+  wait MOVE_TIME
+  OnRev(OUT_C,100)
+  wait TURN_TIME
+  Off(OUT_BC)
+endt

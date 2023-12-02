@@ -1,0 +1,24 @@
+dseg segment
+  Count sword 0
+dseg ends
+
+thread main
+  SetSensorType(IN_2, IN_TYPE_SOUND_DB)
+  SetSensorMode(IN_2, IN_MODE_PERIODCOUNTER)
+  ResetSensor(IN_2)
+
+Forever:
+  ClearSensor(IN_2)
+CheckCount:
+  ReadSensor(IN_2, Count)
+  brtst EQ, CheckCount, Count
+  wait 500
+  ReadSensor(IN_2, Count)
+  brcmp EQ, StopIt, Count, 1
+  OnFwd(OUT_BC,100)
+  jmp Forever
+StopIt:
+  Off(OUT_BC)
+  jmp Forever
+endt
+

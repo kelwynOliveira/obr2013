@@ -1,0 +1,37 @@
+#define  COLOR S3
+task main()
+{
+int leitura;
+int media;
+int motorB;
+int motorC;
+int ajuste;
+int forca=60;
+int erro;
+int maximo;
+int minimo;
+int kp;
+int offset;
+int tp;
+int turn;
+int powerC;
+int powerB;
+SetSensorColorRed(COLOR);
+maximo= 100;
+minimo = -1;
+media=(maximo + minimo)/2;
+while(true)
+ {
+kp=10;
+offset=45;
+tp=50;
+leitura=Sensor(COLOR);
+erro=leitura-offset;
+turn=kp *erro;
+powerB = tp + turn;
+powerC = tp - turn;
+OnFwd(OUT_B,powerB);
+OnFwd(OUT_C,powerC);
+ }
+ }
+

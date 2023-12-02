@@ -1,0 +1,60 @@
+#define COLOR S3
+#define SOUND S2
+#define DIST 10
+
+task main()
+     {
+     int leitura;
+     int media;
+     int motorB;
+     int motorC;
+     int ajuste;
+     int erro;
+     int maximo;
+     int minimo;
+     int kp;
+     int offset;
+     int tp;
+     int turn;
+     int powerC;
+     int powerB;
+     SetSensorColorRed(COLOR);
+     SetSensorLowspeed(SOUND);
+     maximo= 100;
+     minimo = -1;
+     media=(maximo + minimo)/2;
+while(true)
+ {
+  if (SensorUS(SOUND)<= DIST)
+      {
+      Off (OUT_B);
+      RotateMotor(OUT_C, 50, 90);
+      OnFwd(OUT_BC, 50);
+      Wait(1000);
+      Off (OUT_C);
+      RotateMotor(OUT_B, 50, 180);
+      OnFwd (OUT_BC, 50);
+      Wait (1000);
+      Off (OUT_B);
+      RotateMotor(OUT_C, 50,90);
+      }
+  else {
+      kp=10;
+      offset=45;
+      tp=50;
+      leitura=Sensor(COLOR);
+      erro=leitura-offset;
+      turn=kp *erro;
+      powerB = tp + turn;
+      powerC = tp - turn;
+      }
+  if (leitura >= tp)
+     {
+     OnFwd (OUT_BC, 60);
+     }
+  else{
+      OnFwd(OUT_B,powerB);
+      OnFwd(OUT_C,powerC);
+ }     }
+ }
+

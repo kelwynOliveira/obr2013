@@ -1,0 +1,36 @@
+#define COLOR S3
+#define espera 5000
+
+task main()
+{
+int leitura;
+int ajuste;
+int forca=60;
+int erro;
+int kp;
+int offset;
+int tp;
+int turn;
+int powerC;
+int powerB;
+SetSensorColorRed(COLOR);
+while(true)
+{
+kp=10;
+offset=45;
+tp=50;
+leitura=Sensor(COLOR);
+erro=leitura-offset;
+turn=kp *erro;
+powerB = tp + turn;
+powerC = tp - turn;
+//RotateMotor(OUT_B, powerB, 45);
+//RotateMotor(OUT_C, powerC, 45);
+OnFwdSync(OUT_B, powerB, -45);
+OnFwdSync(OUT_C, powerC, 45);
+//OnFwd(OUT_B,powerB);
+// espera;
+//OnFwd(OUT_C,powerC);
+//espera;
+}
+}

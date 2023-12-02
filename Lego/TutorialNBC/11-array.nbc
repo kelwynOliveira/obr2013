@@ -1,0 +1,39 @@
+dseg segment
+  a byte[]
+  b byte[]
+  c byte[]
+  aa byte[][]
+  idx byte
+  value byte
+  tmp byte[]
+dseg ends
+
+thread main
+  arrinit a, 0, 10 // a initialised to a[0..9]
+  arrinit b, 1, 5 // b initialised to b[0..4]
+  replace c, a, 0, b // c[0..4]=1, c[5-9]=0
+  arrbuild aa, a, b, c // aa[0]=a, aa[1]=b, aa[2]=c
+  arrsubset a, c, 3, 5 // a is now [1,1,0,0,0]
+
+  arrsize idx, a // idx=5
+  NumOut(0,0,idx)
+  wait 1000
+
+  arrsize idx, aa // idx=3
+  NumOutEx(0,0,idx,TRUE)
+  wait 1000
+
+  index value, a, 1 // value=1
+  NumOutEx(0,0,value,TRUE)
+  wait 1000
+
+  index value, a, 2 // value=0
+  NumOutEx(0,0,value,TRUE)
+  wait 1000
+  
+  index tmp, aa, 2 // temp=[1,1,1,1,1,0,0,0,0,0]
+  index value, tmp, 2 // value=1
+  NumOutEx(0,0,value,TRUE)
+  wait 1000
+endt
+

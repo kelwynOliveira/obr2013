@@ -1,0 +1,26 @@
+#define THRESHOLD 60
+
+dseg segment
+  Level sword 0
+dseg ends
+
+thread main
+  SetSensorType(IN_3,IN_TYPE_LIGHT_ACTIVE)
+  SetSensorMode(IN_3,IN_MODE_PCTFULLSCALE)
+  ResetSensor(IN_3)
+  OnFwd(OUT_BC,100)
+
+CheckSensor:
+  ReadSensor(IN_3,Level)
+  brcmp LT, CheckSensor, Level, THRESHOLD
+  OnRev(OUT_B,50)
+
+FindLine:
+  ReadSensor(IN_3,Level)
+  brcmp GTEQ, FindLine, Level, THRESHOLD
+
+  OnFwd(OUT_BC,100)
+  jmp CheckSensor
+
+endt
+

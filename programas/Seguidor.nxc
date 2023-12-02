@@ -1,0 +1,53 @@
+#define MotorDireita OUT_C
+#define MotorEsquerda OUT_B
+#define ePRETO  36
+#define dPRETO  1
+#define velocidade 40
+#define SensorDireita IN_3
+#define SensorEsquerda IN_4
+
+task main()
+{
+  int corEsquerda;
+  int corDireita;
+
+  SetSensorColorFull(SensorDireita);
+  SetSensorLight(SensorEsquerda);
+
+  // Ir para a esquerda
+  OnFwd(MotorEsquerda,0);
+  OnFwd(MotorDireita, velocidade);
+
+  while(true)
+  {
+    SetSensorColorFull(SensorDireita);
+    SetSensorLight(SensorEsquerda);
+    corEsquerda = Sensor(SensorEsquerda);
+    corDireita = Sensor(SensorDireita);
+
+    if (corDireita == dPRETO)
+    {
+       if (corEsquerda != ePRETO)
+       {
+         // Ir para a esquerda
+         OnFwd(MotorDireita, 0);
+         OnFwd(MotorEsquerda, velocidade);
+         Wait(100);
+         corEsquerda = Sensor(SensorEsquerda);
+         corDireita = Sensor(SensorDireita);
+       }
+    }
+
+    if (corEsquerda == ePRETO)
+    {
+       if (corDireita != dPRETO)
+       {
+         // Ir para a Direita
+         OnFwd(MotorDireita, velocidade);
+         OnFwd(MotorEsquerda, 0);
+         Wait(100);
+       }
+    }
+  }
+}
+

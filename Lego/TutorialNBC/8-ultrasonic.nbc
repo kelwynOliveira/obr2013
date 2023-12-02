@@ -1,0 +1,17 @@
+dseg segment
+  Distance sword 0
+dseg ends
+
+thread main
+  SetSensorUltrasonic(IN_4)
+  OnFwd(OUT_BC,100)
+  
+Forever:
+  ReadSensorUS(IN_4, Distance)
+  brcmp GT, Forever, Distance, 30
+  Off(OUT_B)
+  wait 200
+  OnFwd(OUT_BC,100)
+  jmp Forever
+endt
+

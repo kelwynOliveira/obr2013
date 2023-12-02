@@ -1,0 +1,22 @@
+dseg segment
+  cur_tick word
+  end_tick word
+  Switch sword
+dseg ends
+
+thread main
+  SetSensorTouch(IN_1)
+  gettick cur_tick
+  add end_tick, cur_tick, 10000
+  OnFwd(OUT_BC,100)
+
+CheckSensor:
+  ReadSensor(IN_1,Switch)
+  brtst NEQ, StopIt, Switch
+  gettick cur_tick
+  brcmp LT, CheckSensor, cur_tick, end_tick
+
+StopIt:
+  Off(OUT_BC)
+endt
+

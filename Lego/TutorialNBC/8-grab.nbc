@@ -1,0 +1,93 @@
+#define LIGHT_MEDIUM 25
+#define VOLUME_MEDIUM 50
+#define DISTANCE_CLOSE 20
+//#define ENHANCED
+
+dseg segment
+  Switch sword 0
+  Level sword 0
+  Volume sword 0
+  Distance sword 0
+dseg ends
+
+thread main
+  SetSensorTouch(IN_1)
+  SetSensorSound(IN_2)
+  SetSensorLight(IN_3)
+  SetSensorUltrasonic(IN_4)
+  precedes do_task
+endt
+
+thread do_task
+CheckObject:
+  ReadSensorUS(IN_4, Distance)
+  brcmp GT, CheckObject, Distance, DISTANCE_CLOSE
+
+#ifdef ENHANCED
+  OnFwdReg(OUT_BC,75,OUT_REGMODE_SYNC)
+#else
+  OnFwd(OUT_BC,75)
+#endif
+
+CheckTouch:
+  ReadSensor(IN_1, Switch)
+  brtst EQ, CheckTouch, Switch
+
+  Off(OUT_BC)
+
+CheckSound:
+  ReadSensor(IN_2, Volume)
+  brcmp LT, CheckSound, Volume, VOLUME_MEDIUM
+
+#ifdef ENHANCED
+  RotateMotor(OUT_A,75,-90)
+#else
+  OnRev(OUT_A,100)
+  wait 200
+  Off(OUT_A)
+#endif
+
+#ifdef ENHANCED
+  OnRevReg(OUT_BC,100,OUT_REGMODE_SYNC)
+#else
+  OnRev(OUT_BC,100)
+#endif
+  wait 200
+  Off(OUT_BC)
+#ifdef ENHANCED
+  RotateMotor(OUT_C,75,-370)
+  RotateMotor(OUT_B,75,370)
+#else
+  OnRev(OUT_C,75)
+  wait 200
+  Off(OUT_C)
+  OnFwd(OUT_B,75)
+  wait 200
+  Off(OUT_B)
+#endif
+  //setout OUT_BC, OutputMode, OUT_MODE_BRAKE, Power, 0, RegMode, OUT_REGMODE_IDLE, TachoLimit, 0, UpdateFlags, UF_UPDATE_SPEED+UF_UPDATE_MODE+UF_UPDATE_TACHO_LIMIT+UF_UPDATE_RESET_BLOCK_COUNT+UF_UPDATE_RESET_ROTATION_COUNT+UF_UPDATE_RESET_COUNT+UF_PENDING_UPDATES
+  //wait 1000
+  TextOut(40,20,'here')
+  wait 1000
+#ifdef ENHANCED
+  OnFwdReg(OUT_BC,75,OUT_REGMODE_SYNC)
+#else
+  OnFwd(OUT_BC,75)
+#endif
+
+CheckLight:
+  ReadSensor(IN_3, Level)
+  brcmp GT, CheckLight, Level, LIGHT_MEDIUM
+
+  Off(OUT_BC)
+
+#ifdef ENHANCED
+  RotateMotor(OUT_A,75,90)
+#else
+  OnFwd(OUT_A,100)
+  wait 200
+  Off(OUT_A)
+#endif
+  exit
+endt
+

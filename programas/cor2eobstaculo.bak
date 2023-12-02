@@ -1,0 +1,61 @@
+#define COLORR S1     //sensor da direita
+#define COLORL S3     //sensor da esquerda
+#define USOUND S2     //sensor ultrasonico
+#define DIST   10     //10 cm
+
+
+task main ()
+     {
+      int leiturad;
+      int leiturae;
+      int erroe;
+      int errod;
+      int kp;
+      int offset;
+      int tp;
+      int turn;
+      int powerB;
+      int powerC;
+      SetSensorColorRed (COLORR);
+      SetSensorColorRed (COLORL);
+      
+while (true)
+      kp =10;
+      offset =45;
+      tp =50;
+      leiturae = Sensor (COLORL); // le sensor de cor esquerdo
+      leiturad = Sensor (COLORR); // le sensor de cor direito
+      erroe = leiturae - offset; // erro esquerdo
+      errod = leiturad - offset; // erro direita
+      {
+      if (SensorUS(USOUND)<= DIST) //detecta objeto e desvia dele
+         {
+         Off (OUT_C);
+         RotateMotor(OUT_B, 50, 90);
+         OnFwd(OUT_BC, 50);
+         Wait(1000);
+         Off (OUT_B);
+         RotateMotor(OUT_C, 50, 180);
+         OnFwd (OUT_BC, 50);
+         Wait (1000);
+         Off (OUT_C);
+         RotateMotor(OUT_B, 50,90);
+      }
+      else
+          if (erroe <0){ //sensor de cor esquerdo, vira pra esquerda detecta preto
+             powerB = tp + turn;
+             powerC = tp - turn;
+             OnFwd (OUT_B, powerB);
+             OnFwd (OUT_C, powerC);
+          }
+          else
+              if (errod <0){ //sensor de cor direito,vira pra direita detcta preto
+              powerB = tp - turn;
+              powerC = tp + turn;
+              OnFwd (OUT_B, powerB);
+              OnFwd (OUT_C, powerC);
+              }
+              else
+              OnFwd (OUT_BC, tp);
+      } //fim while
+} //fim programa
