@@ -1,0 +1,11 @@
+#!/bin/sh
+prefix=/usr
+bindir=${prefix}/bin
+sbindir=${prefix}/sbin
+infodir=${prefix}/share/info
+
+${sbindir}/update-alternatives \
+	--install ${bindir}/automake automake ${bindir}/automake-1.9 50 \
+	--slave   ${bindir}/aclocal  aclocal  ${bindir}/aclocal-1.9     \
+	--slave   ${infodir}/automake.info.gz automake-info ${infodir}/automake1.9.info.gz
+

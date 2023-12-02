@@ -1,0 +1,230 @@
+cairo
+-------------------------------------------
+Cairo is a vector graphics library with cross-device output
+support. Currently supported output targets include the X Window
+System and in-memory image buffers. PostScript and PDF file output is
+planned. Cairo is designed to produce identical output on all output
+media while taking advantage of display hardware acceleration when
+available (eg. through the X Render Extension).
+
+Runtime requirements:
+  cygwin-1.5.25-15
+  libfontconfig1-2.6.0-1
+  libfreetype6-2.3.8-1
+  libglitz1-0.5.6-1
+  libpixman1_0-0.12.0-1
+  libpng12-1.2.34-1
+  libX11_6-1.1.5-2
+  libxcb1-1.1-2
+  libxcb-render0-1.1-2
+  libxcb-render-util0-0.3.2-1
+  libXrender1-0.9.4-2
+  zlib-1.2.3-2
+
+Build requirements:
+(besides corresponding -devel packages)
+  autoconf2.5-2.63-1
+  automake1.10-1.10.1-2
+  binutils-20080624-2
+  cygport-0.4.3-1
+  gawk-3.1.6-1
+  gcc-core-3.4.4-3
+  gnome-common-2.24.0-1
+  gtk-doc-1.11-1
+  libtool-2.2.6a-1
+  make-3.81-1
+  pkg-config-0.23a-2
+  sed-4.1.5-2
+
+Canonical homepage:
+  http://cairographics.org/
+
+Canonical download:
+  http://cairographics.org/releases/
+
+-------------------------------------------
+
+Build instructions:
+  unpack cairo-1.8.6-X-src.tar.bz2
+    if you use setup to install this src package, it will be
+	 unpacked under /usr/src automatically
+  cd /usr/src
+  cygport ./cairo-1.8.6-X.cygport all
+
+This will create:
+  /usr/src/cairo-1.8.6-X-src.tar.bz2
+  /usr/src/libcairo2-1.8.6-X.tar.bz2
+  /usr/src/libcairo-devel-1.8.6-X.tar.bz2
+
+-------------------------------------------
+
+Files included in the binary packages:
+
+(libcairo2)
+  /usr/bin/cygcairo-2.dll
+  /usr/share/doc/cairo-1.8.6/AUTHORS
+  /usr/share/doc/cairo-1.8.6/COPYING
+  /usr/share/doc/cairo-1.8.6/COPYING-LGPL-2.1
+  /usr/share/doc/cairo-1.8.6/COPYING-MPL-1.1
+  /usr/share/doc/cairo-1.8.6/ChangeLog
+  /usr/share/doc/cairo-1.8.6/INSTALL
+  /usr/share/doc/cairo-1.8.6/NEWS
+  /usr/share/doc/cairo-1.8.6/README
+  /usr/share/doc/cairo-1.8.6/TODO
+
+(libcairo-devel)
+  /usr/include/cairo/cairo-deprecated.h
+  /usr/include/cairo/cairo-features.h
+  /usr/include/cairo/cairo-ft.h
+  /usr/include/cairo/cairo-glitz.h
+  /usr/include/cairo/cairo-pdf.h
+  /usr/include/cairo/cairo-ps.h
+  /usr/include/cairo/cairo-svg.h
+  /usr/include/cairo/cairo-version.h
+  /usr/include/cairo/cairo-xcb-xrender.h
+  /usr/include/cairo/cairo-xcb.h
+  /usr/include/cairo/cairo-xlib-xrender.h
+  /usr/include/cairo/cairo-xlib.h
+  /usr/include/cairo/cairo.h
+  /usr/lib/libcairo.dll.a
+  /usr/lib/libcairo.la
+  /usr/lib/pkgconfig/cairo-ft.pc
+  /usr/lib/pkgconfig/cairo-glitz.pc
+  /usr/lib/pkgconfig/cairo-pdf.pc
+  /usr/lib/pkgconfig/cairo-png.pc
+  /usr/lib/pkgconfig/cairo-ps.pc
+  /usr/lib/pkgconfig/cairo-svg.pc
+  /usr/lib/pkgconfig/cairo-xcb.pc
+  /usr/lib/pkgconfig/cairo-xlib-xrender.pc
+  /usr/lib/pkgconfig/cairo-xlib.pc
+  /usr/lib/pkgconfig/cairo.pc
+  /usr/share/gtk-doc/html/cairo/bindings-errors.html
+  /usr/share/gtk-doc/html/cairo/bindings-fonts.html
+  /usr/share/gtk-doc/html/cairo/bindings-memory.html
+  /usr/share/gtk-doc/html/cairo/bindings-overloading.html
+  /usr/share/gtk-doc/html/cairo/bindings-path.html
+  /usr/share/gtk-doc/html/cairo/bindings-patterns.html
+  /usr/share/gtk-doc/html/cairo/bindings-return-values.html
+  /usr/share/gtk-doc/html/cairo/bindings-streams.html
+  /usr/share/gtk-doc/html/cairo/bindings-surfaces.html
+  /usr/share/gtk-doc/html/cairo/cairo-context.html
+  /usr/share/gtk-doc/html/cairo/cairo-drawing.html
+  /usr/share/gtk-doc/html/cairo/cairo-error-status.html
+  /usr/share/gtk-doc/html/cairo/cairo-font-face.html
+  /usr/share/gtk-doc/html/cairo/cairo-font-options.html
+  /usr/share/gtk-doc/html/cairo/cairo-fonts.html
+  /usr/share/gtk-doc/html/cairo/cairo-ft-font.html
+  /usr/share/gtk-doc/html/cairo/cairo-image-surface.html
+  /usr/share/gtk-doc/html/cairo/cairo-matrix.html
+  /usr/share/gtk-doc/html/cairo/cairo-paths.html
+  /usr/share/gtk-doc/html/cairo/cairo-pattern.html
+  /usr/share/gtk-doc/html/cairo/cairo-pdf-surface.html
+  /usr/share/gtk-doc/html/cairo/cairo-png-functions.html
+  /usr/share/gtk-doc/html/cairo/cairo-ps-surface.html
+  /usr/share/gtk-doc/html/cairo/cairo-quartz-font.html
+  /usr/share/gtk-doc/html/cairo/cairo-quartz-surface.html
+  /usr/share/gtk-doc/html/cairo/cairo-scaled-font.html
+  /usr/share/gtk-doc/html/cairo/cairo-support.html
+  /usr/share/gtk-doc/html/cairo/cairo-surface.html
+  /usr/share/gtk-doc/html/cairo/cairo-surfaces.html
+  /usr/share/gtk-doc/html/cairo/cairo-svg-surface.html
+  /usr/share/gtk-doc/html/cairo/cairo-text.html
+  /usr/share/gtk-doc/html/cairo/cairo-transformations.html
+  /usr/share/gtk-doc/html/cairo/cairo-types.html
+  /usr/share/gtk-doc/html/cairo/cairo-user-font.html
+  /usr/share/gtk-doc/html/cairo/cairo-version-info.html
+  /usr/share/gtk-doc/html/cairo/cairo-win32-font.html
+  /usr/share/gtk-doc/html/cairo/cairo-win32-surface.html
+  /usr/share/gtk-doc/html/cairo/cairo-xlib-surface.html
+  /usr/share/gtk-doc/html/cairo/cairo.devhelp
+  /usr/share/gtk-doc/html/cairo/cairo.devhelp2
+  /usr/share/gtk-doc/html/cairo/home.png
+  /usr/share/gtk-doc/html/cairo/index-1.2.html
+  /usr/share/gtk-doc/html/cairo/index-1.4.html
+  /usr/share/gtk-doc/html/cairo/index-1.6.html
+  /usr/share/gtk-doc/html/cairo/index-1.8.html
+  /usr/share/gtk-doc/html/cairo/index-all.html
+  /usr/share/gtk-doc/html/cairo/index.html
+  /usr/share/gtk-doc/html/cairo/index.sgml
+  /usr/share/gtk-doc/html/cairo/language-bindings.html
+  /usr/share/gtk-doc/html/cairo/left.png
+  /usr/share/gtk-doc/html/cairo/right.png
+  /usr/share/gtk-doc/html/cairo/style.css
+  /usr/share/gtk-doc/html/cairo/up.png
+
+------------------
+
+Port Notes:
+
+----- version 1.8.6-2 -----
+Added upstream patch efa9e1088cbf1b5331cc0bab3348520f3b91ae4b: 
+Fix uninitialised status return in _cairo_clip_intersect_mask() for 
+empty extents.
+
+----- version 1.8.6-1 -----
+Version bump.
+
+----- version 1.8.4-1 -----
+Version bump.
+
+----- version 1.8.2-1 -----
+Version bump.
+Enabled XCB backend.
+
+----- version 1.6.4-2 -----
+Patch for change in libpng-1.2.31.
+
+----- version 1.6.4-1 -----
+Version bump.
+
+----- version 1.4.14-1 -----
+Version bump.
+
+----- version 1.4.12-1 -----
+Version bump.
+
+----- version 1.4.10-1 -----
+Version bump.
+
+----- version 1.4.8-1 -----
+Version bump.
+
+----- version 1.4.6-1 -----
+Version bump.
+
+----- version 1.4.4-1 -----
+Version bump.
+
+----- version 1.2.6-1 -----
+Version bump.
+
+----- version 1.2.4-1 -----
+Version bump.  Rearranged packages.
+
+----- version 1.0.4-1 -----
+Version bump.
+
+----- version 1.0.2-1 -----
+Version bump.
+Enabled backends: xlib, image, glitz, pdf, ps.
+
+----- version 1.0.0-2 -----
+Repackaged.
+
+----- version 1.0.0-1 -----
+First official release.
+Enabled backends: xlib, image, and glitz.
+
+----- version 0.9.2-1 -----
+Version bump; this version should be API compatible with 1.0.
+Includes support for both X11 and Win32 backends.
+
+----- version 0.3.0-1 -----
+Version bump.
+
+----- version 0.2.0-1 -----
+Initial release for Cygwin.
+
+
+Cygwin port maintained by:
+http://sourceware.org/cygwinports/

@@ -1,0 +1,141 @@
+fontconfig
+------------------------------------------
+Fontconfig is a library designed to provide system-wide font
+configuration, customization and application access.
+
+Runtime requirements:
+  cygwin-1.5.25-11
+  libexpat1-2.0.1-1
+  libfreetype26-2.2.1-1
+  libiconv2-1.11-1
+
+Build requirements:
+(besides corresponding -devel packages)
+  autoconf2.5-2.61-1
+  automake1.9-1.9.6-2
+  binutils-20080523-1
+  cygport-0.3.11-1
+  gawk-3.1.6-1
+  gcc-core-3.4.4-3
+  libtool-2.2.2-2
+  make-3.81-1
+  pkg-config-0.21-1
+  sed-4.1.5-2
+
+Canonical website:
+  http://fontconfig.org/wiki/
+
+Canonical download:
+  http://fontconfig.org/release/
+
+-------------------------------------------
+
+Build instructions:
+  unpack fontconfig-2.6.0-X-src.tar.bz2
+    if you use setup to install this src package, it will be
+	 unpacked under /usr/src automatically
+  cd /usr/src
+  cygport ./fontconfig-2.6.0-X.cygport all
+
+This will create:
+  /usr/src/fontconfig-2.6.0-X-src.tar.bz2
+  /usr/src/fontconfig-2.6.0-X.tar.bz2
+  /usr/src/libfontconfig-devel-2.6.0-X.tar.bz2
+  /usr/src/libfontconfig1-2.6.0-X.tar.bz2
+
+-------------------------------------------
+
+Files included in the binary packages:
+
+(fontconfig)
+  /etc/fonts/conf.avail/10-autohint.conf
+  /etc/fonts/conf.avail/10-no-sub-pixel.conf
+  /etc/fonts/conf.avail/10-sub-pixel-bgr.conf
+  /etc/fonts/conf.avail/10-sub-pixel-rgb.conf
+  /etc/fonts/conf.avail/10-sub-pixel-vbgr.conf
+  /etc/fonts/conf.avail/10-sub-pixel-vrgb.conf
+  /etc/fonts/conf.avail/10-unhinted.conf
+  /etc/fonts/conf.avail/20-fix-globaladvance.conf
+  /etc/fonts/conf.avail/20-unhint-small-vera.conf
+  /etc/fonts/conf.avail/25-unhint-nonlatin.conf
+  /etc/fonts/conf.avail/30-metric-aliases.conf
+  /etc/fonts/conf.avail/30-urw-aliases.conf
+  /etc/fonts/conf.avail/40-nonlatin.conf
+  /etc/fonts/conf.avail/45-latin.conf
+  /etc/fonts/conf.avail/49-sansserif.conf
+  /etc/fonts/conf.avail/50-user.conf
+  /etc/fonts/conf.avail/51-local.conf
+  /etc/fonts/conf.avail/60-latin.conf
+  /etc/fonts/conf.avail/65-fonts-persian.conf
+  /etc/fonts/conf.avail/65-khmer.conf
+  /etc/fonts/conf.avail/65-nonlatin.conf
+  /etc/fonts/conf.avail/69-unifont.conf
+  /etc/fonts/conf.avail/70-no-bitmaps.conf
+  /etc/fonts/conf.avail/70-yes-bitmaps.conf
+  /etc/fonts/conf.avail/80-delicious.conf
+  /etc/fonts/conf.avail/90-synthetic.conf
+  /etc/fonts/conf.d/20-fix-globaladvance.conf
+  /etc/fonts/conf.d/20-unhint-small-vera.conf
+  /etc/fonts/conf.d/30-metric-aliases.conf
+  /etc/fonts/conf.d/30-urw-aliases.conf
+  /etc/fonts/conf.d/40-nonlatin.conf
+  /etc/fonts/conf.d/45-latin.conf
+  /etc/fonts/conf.d/49-sansserif.conf
+  /etc/fonts/conf.d/50-user.conf
+  /etc/fonts/conf.d/51-local.conf
+  /etc/fonts/conf.d/60-latin.conf
+  /etc/fonts/conf.d/65-fonts-persian.conf
+  /etc/fonts/conf.d/65-nonlatin.conf
+  /etc/fonts/conf.d/69-unifont.conf
+  /etc/fonts/conf.d/80-delicious.conf
+  /etc/fonts/conf.d/90-synthetic.conf
+  /etc/fonts/conf.d/README
+  /etc/fonts/fonts.conf
+  /etc/fonts/fonts.dtd
+  /etc/postinstall/fontconfig.sh
+  /usr/bin/fc-cache.exe
+  /usr/bin/fc-cat.exe
+  /usr/bin/fc-list.exe
+  /usr/bin/fc-match.exe
+  /usr/share/doc/fontconfig-2.6.0/AUTHORS
+  /usr/share/doc/fontconfig-2.6.0/COPYING
+  /usr/share/doc/fontconfig-2.6.0/ChangeLog
+  /usr/share/doc/fontconfig-2.6.0/INSTALL
+  /usr/share/doc/fontconfig-2.6.0/README
+  /usr/share/doc/fontconfig-2.6.0/fontconfig-devel.txt
+  /usr/share/doc/fontconfig-2.6.0/fontconfig-user.txt
+  /usr/share/man/man1/fc-cache.1.gz
+  /usr/share/man/man1/fc-cat.1.gz
+  /usr/share/man/man1/fc-list.1.gz
+  /usr/share/man/man1/fc-match.1.gz
+  /usr/share/man/man5/fonts-conf.5.gz
+
+(libfontconfig1)
+  /usr/bin/cygfontconfig-1.dll
+
+(libfontconfig-devel)
+  /usr/include/fontconfig/fcfreetype.h
+  /usr/include/fontconfig/fcprivate.h
+  /usr/include/fontconfig/fontconfig.h
+  /usr/lib/libfontconfig.a
+  /usr/lib/libfontconfig.dll.a
+  /usr/lib/libfontconfig.la
+  /usr/lib/pkgconfig/fontconfig.pc
+
+------------------
+
+Port Notes:
+
+----- version 2.6.0-1 -----
+Version bump.
+
+----- version 2.3.2-2 -----
+Rebuilt.
+
+----- version 2.3.2-1 -----
+Version bump from new Cygwin maintainer.
+HTML and man3 docs are in the new fontconfig-doc package.
+
+
+Cygwin port maintained by:
+http://cygwinports.dotsrc.org/

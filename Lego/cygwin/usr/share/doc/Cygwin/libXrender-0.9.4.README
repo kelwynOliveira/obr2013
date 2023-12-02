@@ -1,0 +1,85 @@
+libXrender
+------------------------------------------
+X.Org Xrender library
+
+Runtime requirements:
+  cygwin-1.5.25-15
+  libX11_6-1.1.5-1
+
+Build requirements:
+(besides corresponding devel packages)
+  autoconf2.5-2.63-1
+  automake1.10-1.10.1-1
+  binutils-20080624-2
+  cygport-0.4.2-1
+  gawk-3.1.6-1
+  gcc-core-3.4.4-3
+  libtool-2.2.6a-1
+  make-3.81-1
+  pkg-config-0.23a-2
+  sed-4.1.5-2
+  renderproto-0.9.3-1
+  xorg-util-macros-1.1.6-1
+  xproto-7.0.14-1
+
+Canonical website:
+  http://xorg.freedesktop.org/
+
+Canonical download:
+  http://xorg.freedesktop.org/releases/individual/lib/
+
+-------------------------------------------
+
+Build instructions:
+  unpack libXrender-0.9.3-X-src.tar.bz2
+    if you use setup to install this src package, it will be
+	 unpacked under /usr/src automatically
+  cd /usr/src
+  cygport ./libXrender-0.9.3-X.cygport all
+
+This will create:
+  /usr/src/libXrender-0.9.3-X-src.tar.bz2
+  /usr/src/libXrender-0.9.3-X.tar.bz2
+  /usr/src/libXrender-devel-0.9.3-X.tar.bz2
+  /usr/src/libXrender1-0.9.3-X.tar.bz2
+
+-------------------------------------------
+
+Files included in the binary packages:
+
+(libXrender1)
+  /usr/bin/cygXrender-1.dll
+  /usr/share/doc/libXrender-0.9.3/AUTHORS
+  /usr/share/doc/libXrender-0.9.3/COPYING
+  /usr/share/doc/libXrender-0.9.3/ChangeLog
+  /usr/share/doc/libXrender-0.9.3/INSTALL
+
+(libXrender-devel)
+  /usr/include/X11/extensions/Xrender.h
+  /usr/lib/libXrender.a
+  /usr/lib/libXrender.dll.a
+  /usr/lib/libXrender.la
+  /usr/lib/pkgconfig/xrender.pc
+
+------------------
+
+Port Notes:
+
+----- version 0.9.3-2 -----
+Rebuilt.
+
+----- version 0.9.3-1 -----
+Version bump for X11R7.3.
+
+----- version 0.9.2-1 -----
+X11R7.2 version bump.
+
+----- version 0.9.1-1 -----
+X11R7.1 version bump.
+
+----- version 0.9.0.2-1 -----
+Initial Cygwin release of modular X11R7.0.
+
+
+Cygwin port maintained by:
+http://sourceware.org/cygwinports/

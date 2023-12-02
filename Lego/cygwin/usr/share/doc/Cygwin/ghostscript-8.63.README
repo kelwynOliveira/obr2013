@@ -1,0 +1,136 @@
+ghostscript
+-------------------------------------------------------------------------------
+GNU Ghostscript is a Postscript interpreter capable of converting PS
+files into a number of printer output formats.  Ghostscript can also
+render PS files into a number of graphics file formats.
+
+Runtime requirements:
+  cygwin-1.5.25-15
+  libcairo2-1.6.4-2
+  libexpat1-2.0.1-1
+  libfontconfig1-2.6.0-1
+  libfreetype26-2.3.7-1
+  libglitz1-0.5.6-1
+  libICE6-1.0.4-2
+  libiconv2-1.12-1
+  libjasper1-1.900.1-1
+  libjpeg62-6b-12
+  libpixman1_0-0.12.0-1
+  libpng12-1.2.12-1
+  libSM6-1.1.0-1
+  libX11_6-1.1.5-1
+  libXau6-1.0.4-1
+  libxcb-xlib0-1.1-2
+  libxcb1-1.1-2
+  libXdmcp6-1.0.2-3
+  libXrender1-0.9.4-2
+  libXt6-1.0.5-2
+  zlib-1.2.3-2
+  +
+  ghostscript-fonts-std-8.11-1
+  ghostscript-fonts-other-6.0-1
+  gawk-3.1.6-1
+  sed-4.1.5-2
+  coreutils-6.10-2
+  which-2.19-1
+  perl-5.10.0-5
+
+Build requirements:
+  cygwin-1.5.25-15
+  cygport-0.4.2-1
+  bash-3.2.39-20
+  gcc-3.4.4-3
+  gcc-g++-3.4.4-3
+  binutils-20080624-2
+  make-3.81-2
+  sed-4.1.5-2
+  gawk-3.1.6-1
+  coreutils-6.10-2
+  findutils-4.4.0-3
+  autoconf2.5-2.63-1
+  autoconf-6-1
+  automake1.10-1.10.1-2
+  automake-3-1
+  libtool-2.2.6a-1
+  pkg-config-0.23a-2
+  lndir-1.0.1-2
+  ...
+  and corresponding <XXX>-devel-<y.y.y> packages from the runtime section
+
+Canonical homepage:
+  http://pages.cs.wisc.edu/~ghost/
+
+Canonical download:
+   http://mirror.cs.wisc.edu/pub/mirrors/ghost/GPL/gs862/
+    
+License:
+  see /usr/share/doc/ghostscript-<Pack-Ver>/LICENSE
+
+Language:
+  C
+
+-------------------------------------------------------------------------------
+
+Build instructions:
+  unpack ghostscript-<Pack-Ver>-<Cyg-Rel>-src.tar.bz2
+    if you use setup to install this src package, it will be
+ unpacked under /usr/src automatically
+  cd /usr/src
+  cygport ./ghostscript-<Pack-Ver>-<Cyg-Rel>.cygport all
+
+This will create:
+  /usr/src/ghostscript-<Pack-Ver>-<Cyg-Rel>-src.tar.bz2
+  /usr/src/ghostscript-<Pack-Ver>-<Cyg-Rel>.tar.bz2
+  /usr/src/libgs8-<Pack-Ver>-<Cyg-Rel>.tar.bz2
+  /usr/src/libgs-devel-<Pack-Ver>-<Cyg-Rel>.tar.bz2
+  
+Or use 'cygport ./ghostscript-<Pack-Ver>-<Cyg-Rel>.cygport prep' to get a patched source directory
+  
+To find out the files included in the binary distribution, you can
+use "cygcheck -l ghostscript libgs8 libgs-devel", or browse the listing 
+for the appropriate version at <http://cygwin.com/packages/>.
+
+-------------------------------------------------------------------------------
+
+Port Notes:
+
+----- version ghostscript-8.63-2 --- Thu 27 Nov 13:14:53 2008 ---
+
+ o Fixed missing dependency on libcairo2
+   (http://cygwin.com/ml/cygwin/2008-11/msg00531.html)
+
+----- version ghostscript-8.63-1 --- Tue 25 Nov 10:54:50 2008 ---
+
+ o Update to latest upstream
+ o gs -h displayed the wrong documentation directory
+
+----- version ghostscript-8.62-3 --- Sun 23 Nov 18:46:06 2008 ---
+
+ o Recompiled against latest X11R7.4
+ o Implemented the suggestions from Yaakow, see
+   http://cygwin.com/ml/cygwin/2008-11/msg00411.html
+
+   - Removed the native/X11 split
+     (ghostscript-base and ghostscript-x11 packages obsolete, contents now 
+     in ghostscript package)
+   - Fixed font paths
+   - Added shared library and corresponding devel packages
+   
+----- version ghostscript-8.62-2 --- Sun 13 Apr 15:54:28 2008 ---
+
+ o Fixed a bug in referencing the wrong ghostscript executable in the 
+   ghostscript helper scripts 
+ o gs -h displayed the wrong documentation directory
+   
+----- version ghostscript-8.62-1 --- Sun 06 Apr 17:05:33 2008 ---
+
+ o Maintainer change
+ o Switched to cygport build framework
+ o update-alternatives is used to switch between the X11 and non-X11 
+   version of gs
+
+Cygwin port maintained by: Dr. Volker Zell  <dr.volker.zell@oracle.com>
+
+For original port information see /usr/share/doc/Cygwin/ghostscript-{8.15|8.50}.README
+
+Please address all questions to the Cygwin mailing list at <cygwin@cygwin.com>
