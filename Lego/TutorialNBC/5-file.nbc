@@ -1,9 +1,0 @@
-dseg segment
-  MyFile byte[] 'Woops.rso'
-dseg ends
-
-thread main
-  PlayFile(MyFile)
-  wait 1000
-endt
-
